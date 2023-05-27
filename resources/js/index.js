@@ -30,11 +30,11 @@ function getCarouselOuter (id, innerId) {
         <div id="carouselIndicators-${id}" class="carousel slide" data-bs-ride="true">
             <div class="carousel-inner" id="${innerId}"></div>
             <button class="carousel-control-prev-btn" type="button" data-bs-target="#carouselIndicators-${id}" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span aria-hidden="true"><i class="fa-solid fa-angle-left"></i></span>
                 <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next-btn" type="button" data-bs-target="#carouselIndicators-${id}" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>

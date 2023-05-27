@@ -133,18 +133,24 @@ img:hover {
   top: 0;
   bottom: 0;
   z-index: 1;
-  background: #ececec;
+  background: #F6F8FA;;
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: center; */
   padding: 0;
-  transition: opacity .15s ease;
   border-radius: 50px;
   border: none;
+  transition: all 0.4s;
 }
 
 .carousel-control-next-btn span,
 .carousel-control-prev-btn span{
+  padding: 2px;
   width: 16px;
-  /* background-color: #737373; */
+  color: #737373;
+}
+
+.carousel-control-next-btn:hover,
+.carousel-control-prev-btn:hover {
+  background-color: #ececec;
 }
