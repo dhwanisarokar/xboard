@@ -19,14 +19,14 @@ function getAccodianItems(id, title, idx) {
                     ${title}
                 </button>
             </h2>
-            <div id="collapse-${id}" class="accordion-collapse collapse" aria-labelledby="headingOne"  data-bs-parent="#accordionId">
+            <div id="collapse-${id}" class="accordion-collapse collapse mt-3" aria-labelledby="headingOne"  data-bs-parent="#accordionId">
             </div>
         </div>
     `;
 }
 
-function getCarouselOuter (id, innerId) {
-    return `
+function getCarouselOuter(id, innerId) {
+  return `
         <div id="carouselIndicators-${id}" class="carousel slide" data-bs-ride="true">
             <div class="carousel-inner" id="${innerId}"></div>
             <button class="carousel-control-prev-btn" type="button" data-bs-target="#carouselIndicators-${id}" data-bs-slide="prev">
@@ -41,13 +41,15 @@ function getCarouselOuter (id, innerId) {
     `;
 }
 
-function getCarouselItem (id, active, card) {
-    return `<div id="${id}" class="carousel-item ${active ? "active" : ""}">${card}</div>`;
+function getCarouselItem(id, active, card) {
+  return `<div id="${id}" class="carousel-item ${
+    active ? "active" : ""
+  }">${card}</div>`;
 }
 
-function getCard (item) {
-    let pubDate = item.pubDate.substring(0, 10).split("-").join("/");
-    return `
+function getCard(item) {
+  let pubDate = item.pubDate.substring(0, 10).split("-").join("/");
+  return `
         <div class="card d-block">
             <img src="${item.enclosure.link}" class="card-img-top img-fluid carousel-img" alt="${item.author}">
             <div class="card-body">
@@ -65,44 +67,51 @@ function getCard (item) {
 }
 
 function addFeedsToDOM() {
-    
-    magazines.forEach(async (url, idx) => {
-        try {
-            const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURI(url)}`);
-    
-            const data = await res.json();
-            // console.log(data.items[0]);
-            
-            // add accordionItem to DOM
-            const accordionItemId = getID();
-            const accordionItem = getAccodianItems(accordionItemId, data.feed.title, idx);
-            document.getElementById("accordionId").innerHTML += accordionItem;
+  magazines.forEach(async (url, idx) => {
+    try {
+      const res = await fetch(
+        `https://api.rss2json.com/v1/api.json?rss_url=${encodeURI(url)}`
+      );
 
-            if(idx === 0) {
-                document.getElementById(`collapse-${accordionItemId}`).classList.add("show");
-                document.querySelector(`#heading-${accordionItemId} > button`).setAttribute("aria-expanded", "true")
-            }
+      const data = await res.json();
+      // console.log(data.items[0]);
 
-            // append carousel to accordionItem 
-            const carouselId = getID();
-            const carouselInnerId = getID();
-            const carousel = getCarouselOuter(carouselId, carouselInnerId);
-            document.getElementById(`collapse-${accordionItemId}`).innerHTML = carousel;
+      // add accordionItem to DOM
+      const accordionItemId = getID();
+      const accordionItem = getAccodianItems(
+        accordionItemId,
+        data.feed.title,
+        idx
+      );
+      document.getElementById("accordionId").innerHTML += accordionItem;
 
-            data.items.forEach((item, idx) => {
-                const card = getCard(item);
-                const carouselItemId = getID();
-                // append card to carouselItem
-                const carouselItem = getCarouselItem(carouselItemId, idx === 0, card);
-                document.getElementById(carouselInnerId).innerHTML += carouselItem;
-            });
+      if (idx === 0) {
+        document
+          .getElementById(`collapse-${accordionItemId}`)
+          .classList.add("show");
+        document
+          .querySelector(`#heading-${accordionItemId} > button`)
+          .setAttribute("aria-expanded", "true");
+      }
 
+      // append carousel to accordionItem
+      const carouselId = getID();
+      const carouselInnerId = getID();
+      const carousel = getCarouselOuter(carouselId, carouselInnerId);
+      document.getElementById(`collapse-${accordionItemId}`).innerHTML =
+        carousel;
 
-        } catch (err) {
-            console.error(err);
-        }
-
-    });
+      data.items.forEach((item, idx) => {
+        const card = getCard(item);
+        const carouselItemId = getID();
+        // append card to carouselItem
+        const carouselItem = getCarouselItem(carouselItemId, idx === 0, card);
+        document.getElementById(carouselInnerId).innerHTML += carouselItem;
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  });
 }
 
 addFeedsToDOM();

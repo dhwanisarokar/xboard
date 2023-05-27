@@ -2,8 +2,8 @@ html,
 body {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 body::-webkit-scrollbar {
@@ -101,8 +101,8 @@ img:hover {
 }
 
 .accordion-arrow[aria-expanded="true"]::before {
-  transform: rotate(-180deg);
   top: -1px;
+  transform: rotate(-180deg);
 }
 
 .btn {
@@ -123,7 +123,7 @@ img:hover {
   right: -21px;
 }
 
-.carousel-control-prev-btn{
+.carousel-control-prev-btn {
   left: -21px;
 }
 
@@ -133,7 +133,7 @@ img:hover {
   top: 0;
   bottom: 0;
   z-index: 1;
-  background: #F6F8FA;;
+  background: #f6f8fa;
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: center; */
@@ -144,7 +144,7 @@ img:hover {
 }
 
 .carousel-control-next-btn span,
-.carousel-control-prev-btn span{
+.carousel-control-prev-btn span {
   padding: 2px;
   width: 16px;
   color: #737373;
