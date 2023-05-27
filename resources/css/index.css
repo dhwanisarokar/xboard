@@ -1,0 +1,150 @@
+html,
+body {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  border-bottom: 1px solid #e1e4e8;
+  color: #ffffff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar-brand {
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  line-height: 24px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #292b2e;
+}
+
+.carousel-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .carousel-img {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+img:hover {
+  filter: brightness(50%);
+  transform: scale(1.05);
+  transition: all 0.4s;
+}
+
+#icon {
+  width: 27px;
+  height: 9px;
+  background: linear-gradient(96.34deg, #e537b9 0%, #c040df 100%);
+  border-radius: 4.5px;
+}
+
+.card {
+  border: none;
+  background-color: unset;
+  background-clip: unset;
+}
+
+.card img {
+  border-radius: 0;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.accordion-collapse {
+  padding: 0 30px;
+}
+
+.accordion-arrow {
+  width: 100%;
+  position: relative;
+  text-align: left;
+  opacity: 0.7;
+  font-weight: bold;
+  color: unset;
+  text-decoration: none;
+}
+
+.accordion-arrow::before {
+  content: "\f107";
+  color: #737373;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: block;
+  font-family: "FontAwesome";
+  font-size: 1.1rem;
+  transition: all 0.4s;
+}
+
+.accordion-arrow[aria-expanded="true"]::before {
+  transform: rotate(-180deg);
+  top: -1px;
+}
+
+.btn {
+  display: flex;
+  padding: 0px;
+  text-align: start;
+  border: none;
+  margin: 10px;
+  padding-left: 18px;
+}
+
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: unset;
+}
+.carousel-control-next-btn {
+  right: -21px;
+}
+
+.carousel-control-prev-btn{
+  left: -21px;
+}
+
+.carousel-control-next-btn,
+.carousel-control-prev-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #ececec;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  padding: 0;
+  transition: opacity .15s ease;
+  border-radius: 50px;
+  border: none;
+}
+
+.carousel-control-next-btn span,
+.carousel-control-prev-btn span{
+  width: 16px;
+  /* background-color: #737373; */
+}
